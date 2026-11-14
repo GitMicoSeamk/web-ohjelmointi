@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="fi">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <title>Etusivu</title>
-    </head>
-    <body>
-<main>
-    <section>
-        <h2>Tervetuloa Kuivasjärven Rantasaunoille</h2>
-        <p>Kaipaatko irti arjesta? Me sijaitsemme kauniilla Kuivasjärven rannalla Seinäjoella ja tarjoamme aitoa suomalaista saunatunnelmaa. Vuokraamme iltakäyttöön kolmea erilaista saunaa: perinteistä savusaunaa, tunnelmallista puulämmitteistä rantasaunaa sekä kodikasta pientä mökkisaunaa.</p>
-        <p>Ei enää turhia puhelinsoittoja vapaista illoista – löydät meiltä suoraan ajantasaiset tiedot seuraavan kahden viikon vapaista saunomisilloistamme.</p>
+<head>
+    <meta charset="UTF-8">
+    <title>Kuivasjärven Rantasaunat</title>
+    <!-- Linkki yhteiseen tyylitiedostoon -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- YLÄPALKKI JA NAVIGAATIO (Sama kaikilla sivuilla) -->
+    <header class="site-header">
+        <div class="header-content">
+            <h1>Kuivasjärven Rantasaunat</h1>
+            <p class="tagline">Aidot rantalöylyt Seinäjoella</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="about.html">Tietoa meistä</a></li>
+                <li><a href="listing.html">Saunat ja Vapaat illat</a></li>
+                <li><a href="contact.html">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-text">
+            <h2>Tervetuloa saunomaan</h2>
+            <p>Tutustu savusaunaan, rantasaunaan ja mökkisaunaan</p>
+        </div>
     </section>
 
-    <section>
-        <h2>Saunat ja hinnat</h2>
-        <p>Meillä viikonloput ovat suuren kysynnän vuoksi hinnoiteltu arki-iltoja korkeemmiksi. Valitse suosikkisi ja tule löylyihin!</p>
-        
-<div class="laatikot">
-    <article class="laatikko">
-        <img src="images/savusauna.jpg" alt="Tunnelmallinen savusauna pimeässä illassa Kuivasjärven rannalla" class="laatikko-kuva">
-        <h3>Savusauna</h3>
-        <p><strong>Koko:</strong> Max. 15 henkeä</p>
-        <p><strong>Hinta:</strong> Arkisin 180 € / ilta | Viikonloppuisin 250 € / ilta</p>
-        <p>Pehmeät, pitkät löylyt ja ainutlaatuinen tunnelma.</p>
-    </article>
+    <!-- VARSINAINEN SISÄLTÖ (Vaihtelee sivuittain) -->
+    <main class="site-main">
+        <section>
+            <h3>Tähän sivun varsinainen sisältö...</h3>
+            <p>Esimerkiksi saunojen esittelyt, hinnat tai yhteystietolomake.</p>
+        </section>
+    </main>
 
-    <article class="laatikko">
-        <img src="images/rantasauna.jpg" alt="Puulämmitteinen rantasauna ja laituri" class="laatikko-kuva">
-        <h3>Puulämmitteinen rantasauna</h3>
-        <p><strong>Koko:</strong> Max. 10 henkeä</p>
-        <p><strong>Hinta:</strong> Arkisin 120 € / ilta | Viikonloppuisin 160 € / ilta</p>
-        <p>Perinteinen sauna aivan rannan tuntumassa.</p>
-    </article>
+    <footer class="site-footer">
+        <p>&copy; 2026 Kuivasjärven Rantasaunat | Seinäjoki</p>
+        <p>Sähköposti: <a href="mailto:ville@rantasaunat.fi">ville@rantasaunat.fi</a></p>
+    </footer>
 
-    <article class="laatikko">
-        <img src="images/mokkalassa.jpg" alt="Pieni mökkisauna metsän reunassa" class="laatikko-kuva">
-        <h3>Pieni mökkisauna</h3>
-        <p><strong>Koko:</strong> Max. 5 henkeä</p>
-        <p><strong>Hinta:</strong> Arkisin 80 € / ilta | Viikonloppuisin 110 € / ilta</p>
-        <p>Intiimimpi vaihtoehto pienemmälle porukalle.</p>
-    </article>
-</div>
-    </section>
-
-    <section>
-        <h2>Varaa oma iltasi</h2>
-        <p>Voit tarkistaa vapaat ajat <a href="listing.html">Saunat ja Vapaat illat</a> -sivulta ja lähettää meille suoraan varauspyynnön <a href="contact.html">Ota yhteyttä</a> -sivun kautta. Vahvistamme varaukset aina puhelimitse!</p>
-    </section>
-</main>
-    </body>
+</body>
 </html>
