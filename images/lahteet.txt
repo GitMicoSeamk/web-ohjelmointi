@@ -1,0 +1,6 @@
+savusauna.jpg: https://commons.wikimedia.org/wiki/File:Traditional_Finnish_smoke_sauna.jpg
+
+rantasauna.jpg: https://commons.wikimedia.org/wiki/File:Eerikkil%C3%A4,_Tammela,_Finland_%2803%29.jpg
+
+mokkalassa.jpg: https://commons.wikimedia.org/wiki/File:Rekolan_kartanon_ty%C3%B6v%C3%A4en_k%C3%A4yt%C3%B6ss%C3%A4_ollut_sauna_%28Vantaa,_1990%29.jpg
+
