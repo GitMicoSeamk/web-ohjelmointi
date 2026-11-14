@@ -1,24 +1,31 @@
-/* Yleiset tyylit ja asiakkaan mukaiset värit */
+/* Yleiset tyylit */
 body {
-    background-color: #f7f3e8; /* Kermanvalkoinen */
-    color: #1f3d2b;            /* Tummanvihreä teksti */
+    background-color: #f7f3e8;
+    color: #1f3d2b;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-/* Header ja navigaatio */
-header {
+/* Yläpalkki ja navigaatio */
+.site-header {
     background-color: #1f3d2b;
     color: #f7f3e8;
     padding: 20px;
     text-align: center;
+    border-bottom: 4px solid #c8902e;
 }
 
-header h1 {
-    margin: 0 0 15px 0;
+.site-header h1 {
+    margin: 0 0 5px 0;
     color: #f7f3e8;
+}
+
+.tagline {
+    margin: 0 0 15px 0;
+    font-style: italic;
+    color: #c8902e;
 }
 
 nav ul {
@@ -28,59 +35,68 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
 nav a {
     color: #f7f3e8;
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 4px;
     transition: background-color 0.2s;
 }
 
-/* Kun hiiri viedään linkin päälle, käytetään sinapinkeltaista korostusta */
 nav a:hover {
-    background-color: #c8902e; 
+    background-color: #c8902e;
     color: #1f3d2b;
 }
 
-/* Sisällön ja laatikoiden perusmuotoilua */
-main, section {
-    padding: 20px;
-    max-width: 800px;
+/* Sivun banneri */
+.page-banner {
+    background-color: #1f3d2b;
+    color: #f7f3e8;
+    background-image: linear-gradient(rgba(31, 61, 43, 0.8), rgba(31, 61, 43, 0.8)), url('images/rantamaisema.jpg'); /* Voit lisätä taustakuvan tai poistaa linear-gradientin jos haluat pelkän värin */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 2px solid #c8902e;
+}
+
+.page-banner h2 {
+    margin: 0 0 10px 0;
+    color: #c8902e;
+    font-size: 2rem;
+}
+
+.page-banner p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Pääsisällön alue */
+.site-main {
+    padding: 30px 20px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.laatikot {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-.laatikko {
-    background-color: #ffffff;
-    border: 1px solid #c8902e;
-    padding: 15px;
-    border-radius: 6px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-
-.laatikko img.laatikko-kuva {
-    width: 100%;           
-    height: 140px;        
-    object-fit: cover;     
-    border-radius: 4px 4px 0 0;
-    margin: -15px -15px 15px -15px; 
-
-footer {
+/* Alapalkki */
+.site-footer {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background-color: #1f3d2b;
     color: #f7f3e8;
-    margin-top: 40px;
+    margin-top: 50px;
+    border-top: 4px solid #c8902e;
+}
+
+.site-footer a {
+    color: #c8902e;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
 }
