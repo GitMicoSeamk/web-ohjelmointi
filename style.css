@@ -82,6 +82,34 @@ nav a:hover {
     margin: 0 auto;
 }
 
+/* Varmista että laatikot ovat joustavia ja pitävät sisällöllään saman muodon */
+.laatikot {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.laatikko {
+    background-color: #ffffff;
+    border: 1px solid #c8902e;
+    padding: 15px;
+    border-radius: 6px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* KORJATTU KUVIEN TYYLI: Pakottaa kuvat asettumaan siististi laatikon sisään */
+.laatikko img.laatikko-kuva {
+    width: calc(100% + 30px); /* Kasvattaa kuvan leveyden yli paddingien */
+    height: 140px;            /* Kiinteä korkeus, jotta kuvat ovat saman kokoisia */
+    object-fit: cover;        /* Leikkaa kuvaa fiksusti, ettei se veny */
+    margin: -15px -15px 15px -15px; /* Nollaa laatikon sisäreunukset, jotta kuva osuu reunoihin asti */
+    border-radius: 5px 5px 0 0;  /* Pyöristää vain yläkulmat */
+}
+
 /* Alapalkki */
 .site-footer {
     text-align: center;
