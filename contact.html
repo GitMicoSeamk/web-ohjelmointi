@@ -1,35 +1,97 @@
 <!DOCTYPE html>
 <html lang="fi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Ota yhteyttä</title>
-    </head>
-    <body>
-        <h1>Morjesta ja tervetuloa!</h1>
+<head>
+    <meta charset="UTF-8">
+    <title>Ota yhteyttä - Kuivasjärven Rantasaunat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- YLÄPALKKI JA NAVIGAATIO -->
+    <header class="site-header">
+        <div class="header-content">
+            <h1>Kuivasjärven Rantasaunat</h1>
+            <p class="tagline">Aidot rantalöylyt Seinäjoella</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="about.html">Tietoa meistä</a></li>
+                <li><a href="listing.html">Saunat ja Vapaat illat</a></li>
+                <li><a href="contact.html">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SIVUN BANNERI -->
+    <section class="page-banner">
+        <div class="banner-text">
+            <h2>Ota yhteyttä ja tee varauspyyntö</h2>
+            <p>Valitse haluamasi sauna ja ilta – vahvistamme varauksen puhelimitse</p>
+        </div>
+    </section>
+
+    <!-- VARSINAINEN SISÄLTÖ -->
+    <main class="site-main">
         <section>
-            <h2>Ota yhteyttä</h2>
-            <p><a href="https://www.youtube.com/@JuibbiWasTaken">Youtube kanavani</a></p>
+            <h2>Varauspyyntölomake</h2>
+            <p>Täytä alla olevat tiedot. IT-kumppanimme yhdistää lomakkeen sähköpostiimme myöhemmin, mutta nyt lomake tarkistaa syöttämäsi tiedot ja ilmoittaa selvästi, kun pyyntö on valmis lähetettäväksi.</p>
+
+            <!-- Lomake laatikon sisällä -->
+            <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 25px; border-radius: 6px; margin-top: 20px;">
+                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <div>
+                        <label for="nimi" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Nimi:</label>
+                        <input type="text" id="nimi" name="nimi" required placeholder="Etunimi Sukunimi" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+
+                    <div>
+                        <label for="puhelin" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Puhelinnumero (vahvistusta varten):</label>
+                        <input type="tel" id="puhelin" name="puhelin" required placeholder="040 1234567" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+
+                    <div>
+                        <label for="sauna" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Valitse sauna:</label>
+                        <select id="sauna" name="sauna" required style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; background-color: #ffffff; color: #1f3d2b; box-sizing: border-box;">
+                            <option value="">-- Valitse vaihtoehto --</option>
+                            <option value="savusauna">Savusauna (Max. 15 hlö)</option>
+                            <option value="rantasauna">Puulämmitteinen rantasauna (Max. 10 hlö)</option>
+                            <option value="mokkisauna">Pieni mökkisauna (Max. 5 hlö)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="ilta" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Valitse ilta (tarkista vapaat ajat Saunat-sivulta):</label>
+                        <input type="date" id="ilta" name="ilta" required style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                    </div>
+
+                    <div>
+                        <label for="viesti" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Lisätiedot / Erityistoiveet:</label>
+                        <textarea id="viesti" name="viesti" rows="4" placeholder="Kerro mahdollisista lisätiedoista..." style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;"></textarea>
+                    </div>
+
+                    <button type="submit" style="background-color: #1f3d2b; color: #f7f3e8; padding: 12px 20px; border: none; border-radius: 4px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s;">
+                        Lähetä varauspyyntö
+                    </button>
+                </form>
+            </div>
+        </selction>
+
+        <section style="margin-top: 40px;">
+            <h2>Yhteystiedot</h2>
+            <p><strong>Kuivasjärven Rantasaunat</strong><br>
+            Kuivasjärven ranta, Seinäjoki<br>
+            Puhelin: 040 123 4567 (Ville Ylinen)<br>
+            Sähköposti: <a href="mailto:ville@rantasaunat.fi">ville@rantasaunat.fi</a></p>
         </section>
-        <section>
-            <h2>Sähköposti</h2>
-            <p><a href="mailto:Mico.hack@student.seamk.fi">Mico.hack@student.seamk.fi</a></p>
-        </section>
-        <br>
-        <article class="laatikot">
-            <h2>Muut sivut:</h2>
-            <article class="laatikko">
-                <h3>Etusivu</h3>
-                <p><a href="index.html">Etusivu löytyy täältä</a></p>
-            </article>
-            <article class="laatikko">
-                <h3>Tietoja minusta</h3>
-                <p><a href="about.html">Tietoa minusta</a></p>
-            </article>
-            <article class="laatikko">
-                <h3>Listaukset</h3>
-                <p><a href="listing.html">Mitä tässä kuvitteellisessa sivustossa on tarjolla?</a></p>
-            </article>
-        </article>
-        <br>
-    </body>
+    </main>
+
+    <!-- ALAPALKKI -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Kuivasjärven Rantasaunat | Seinäjoki</p>
+        <p>Sähköposti: <a href="mailto:ville@rantasaunat.fi">ville@rantasaunat.fi</a></p>
+    </footer>
+
+</body>
 </html>
