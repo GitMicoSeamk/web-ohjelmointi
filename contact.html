@@ -32,39 +32,59 @@
         </div>
     </section>
 
-    <!-- VARSINAINEN SISÄLTÖ -->
+ <!-- VARSINAINEN SISÄLTÖ -->
     <main class="site-main">
         <section>
             <h2>Varauspyyntölomake</h2>
-            <p>Täytä alla olevat tiedot. IT-kumppanimme yhdistää lomakkeen sähköpostiimme myöhemmin, mutta nyt lomake tarkistaa syöttämäsi tiedot ja ilmoittaa selvästi, kun pyyntö on valmis lähetettäväksi.</p>
+            <p>Täytä alla olevat tiedot. Lähetettyäsi lomakkeen tarkistamme tiedot ja tallennamme pyynnön selaimeesi, jotta näet sen myös sivun päivityksen jälkeen. Vahvistamme varaukset aina puhelimitse.</p>
+
+            <!-- Yksi popover-valikko (esim. apuohje / hinnoittelu- ja aikatauluinfo) -->
+            <div style="margin: 15px 0;">
+                <button type="button" popovertarget="varaus-popover" style="background-color: #ffffff; color: #1f3d2b; border: 2px solid #c8902e; padding: 9px 14px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                    Avaa varaus- ja hintaohje
+                </button>
+
+                <div id="varaus-popover" popover style="background-color: #f7f3e8; color: #1f3d2b; border: 2px solid #1f3d2b; border-radius: 6px; padding: 18px; max-width: 420px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);">
+                    <h3 style="margin-top: 0; color: #1f3d2b;">Hyvä tietää ennen lähettämistä</h3>
+                    <p style="margin-top: 0;"><strong>Viikonloppuhinnat (pe–su):</strong> Savusauna 250 €, Rantasauna 160 €, Pieni mökkisauna 110 €.</p>
+                    <p style="margin-bottom: 12px;"><strong>Arkisin (ma–to):</strong> Savusauna 180 €, Rantasauna 120 €, Pieni mökkisauna 80 €.</p>
+                    <button type="button" popovertarget="varaus-popover" popovertargetaction="hide" style="background-color: #1f3d2b; color: #f7f3e8; border: none; padding: 8px 14px; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                        Sulje ohje
+                    </button>
+                </div>
+            </div>
 
             <!-- Lomake laatikon sisällä -->
-            <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 25px; border-radius: 6px; margin-top: 20px;">
-                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                    
+            <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 25px; border-radius: 6px; margin-top: 15px;">
+                <form id="varauslomake" action="#" method="POST" novalidate style="display: flex; flex-direction: column; gap: 15px;">
+
                     <div>
                         <label for="nimi" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Nimi:</label>
-                        <input type="text" id="nimi" name="nimi" required placeholder="Etunimi Sukunimi" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <input type="text" id="nimi" name="nimi" placeholder="Etunimi Sukunimi" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <p id="virhe-nimi" role="alert" style="margin: 5px 0 0 0; font-weight: bold; color: #7a2e00;"></p>
                     </div>
 
                     <div>
                         <label for="puhelin" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Puhelinnumero (vahvistusta varten):</label>
-                        <input type="tel" id="puhelin" name="puhelin" required placeholder="040 1234567" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <input type="tel" id="puhelin" name="puhelin" placeholder="040 1234567" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <p id="virhe-puhelin" role="alert" style="margin: 5px 0 0 0; font-weight: bold; color: #7a2e00;"></p>
                     </div>
 
                     <div>
                         <label for="sauna" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Valitse sauna:</label>
-                        <select id="sauna" name="sauna" required style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; background-color: #ffffff; color: #1f3d2b; box-sizing: border-box;">
+                        <select id="sauna" name="sauna" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; background-color: #ffffff; color: #1f3d2b; box-sizing: border-box;">
                             <option value="">-- Valitse vaihtoehto --</option>
-                            <option value="savusauna">Savusauna (Max. 15 hlö)</option>
-                            <option value="rantasauna">Puulämmitteinen rantasauna (Max. 10 hlö)</option>
-                            <option value="mokkisauna">Pieni mökkisauna (Max. 5 hlö)</option>
+                            <option value="Savusauna">Savusauna (Max. 15 hlö)</option>
+                            <option value="Puulämmitteinen rantasauna">Puulämmitteinen rantasauna (Max. 10 hlö)</option>
+                            <option value="Pieni mökkisauna">Pieni mökkisauna (Max. 5 hlö)</option>
                         </select>
+                        <p id="virhe-sauna" role="alert" style="margin: 5px 0 0 0; font-weight: bold; color: #7a2e00;"></p>
                     </div>
 
                     <div>
                         <label for="ilta" style="display: block; font-weight: bold; margin-bottom: 5px; color: #1f3d2b;">Valitse ilta (tarkista vapaat ajat Saunat-sivulta):</label>
-                        <input type="date" id="ilta" name="ilta" required style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <input type="date" id="ilta" name="ilta" style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                        <p id="virhe-ilta" role="alert" style="margin: 5px 0 0 0; font-weight: bold; color: #7a2e00;"></p>
                     </div>
 
                     <div>
@@ -72,10 +92,24 @@
                         <textarea id="viesti" name="viesti" rows="4" placeholder="Kerro mahdollisista lisätiedoista..." style="width: 100%; padding: 10px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;"></textarea>
                     </div>
 
-                    <button type="submit" style="background-color: #1f3d2b; color: #f7f3e8; padding: 12px 20px; border: none; border-radius: 4px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.2s;">
+                    <button type="submit" style="background-color: #1f3d2b; color: #f7f3e8; padding: 12px 20px; border: none; border-radius: 4px; font-weight: bold; font-size: 1rem; cursor: pointer;">
                         Lähetä varauspyyntö
                     </button>
+
+                    <p id="lomake-tila" aria-live="polite" style="margin: 5px 0 0 0; font-weight: bold;"></p>
                 </form>
+            </div>
+        </section>
+
+        <!-- Selaimeen tallennetut varauspyynnöt -->
+        <section style="margin-top: 35px;">
+            <h2>Selaimeen tallennetut varauspyynnöt</h2>
+            <p>Tallennetaan paikallisesti tähän selaimeen (<code>localStorage</code>).</p>
+            <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 20px; border-radius: 6px;">
+                <ul id="tallennetut-pyynnot" style="line-height: 1.7; margin-top: 0;"></ul>
+                <button type="button" id="tyhjenna-pyynnot" style="background-color: #1f3d2b; color: #f7f3e8; padding: 8px 14px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                    Tyhjennä tallennetut pyynnöt
+                </button>
             </div>
         </section>
 
