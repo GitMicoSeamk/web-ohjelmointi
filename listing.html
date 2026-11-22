@@ -34,14 +34,52 @@
     </section>
 
     <!-- VARSINAINEN SISÄLTÖ -->
+<!-- VARSINAINEN SISÄLTÖ -->
     <main class="site-main">
         <section>
             <h2>Kolme saunaamme ja hinnat</h2>
-            <p>Valitse suosikkisi ja tarkista alta seuraavan kahden viikon vapaat illat. Viikonloppuisin (pe-su) hinnat ovat kysynnän vuoksi korkeammat.</p>
+            <p>Valitse suosikkisi, suodata tai lajittele saunoja ja tarkista alta seuraavan kahden viikon vapaat illat. Viikonloppuisin (pe–su) hinnat ovat kysynnän vuoksi korkeammat.</p>
+
+            <!-- Haku, suodatus ja lajittelu (toimii näppäimistöllä ja ilman onclick-attribuutteja) -->
+            <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 15px; border-radius: 6px; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 15px; align-items: end;">
+                <div style="flex: 1 1 200px;">
+                    <label for="sauna-haku" style="display: block; font-weight: bold; margin-bottom: 5px;">Hae nimellä tai kuvauksella:</label>
+                    <input type="search" id="sauna-haku" placeholder="Esim. savusauna, laituri, löylyt..." style="width: 100%; padding: 8px; border: 1px solid #c8902e; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="flex: 1 1 160px;">
+                    <label for="koko-suodatin" style="display: block; font-weight: bold; margin-bottom: 5px;">Porukan koko (vähintään):</label>
+                    <select id="koko-suodatin" style="width: 100%; padding: 8px; border: 1px solid #c8902e; border-radius: 4px; background-color: #ffffff; color: #1f3d2b; box-sizing: border-box;">
+                        <option value="0">Kaikki koot</option>
+                        <option value="5">Vähintään 5 hlö</option>
+                        <option value="10">Vähintään 10 hlö</option>
+                        <option value="15">Vähintään 15 hlö</option>
+                    </select>
+                </div>
+
+                <div style="flex: 1 1 180px;">
+                    <label for="sauna-lajittelu" style="display: block; font-weight: bold; margin-bottom: 5px;">Lajittele:</label>
+                    <select id="sauna-lajittelu" style="width: 100%; padding: 8px; border: 1px solid #c8902e; border-radius: 4px; background-color: #ffffff; color: #1f3d2b; box-sizing: border-box;">
+                        <option value="oletus">Oletusjärjestys</option>
+                        <option value="hinta-asc">Arkihinta: halvin ensin</option>
+                        <option value="hinta-desc">Arkihinta: kallein ensin</option>
+                        <option value="koko-desc">Koko: suurin ensin</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="button" id="nollaa-suodattimet" style="background-color: #1f3d2b; color: #f7f3e8; padding: 9px 14px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                        Tyhjennä valinnat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tilarivi, joka kertoo montako näytetään -->
+            <p id="tilarivi" aria-live="polite" style="font-weight: bold; margin: 10px 0 20px 0;">Näytetään 3 / 3 saunaa</p>
 
             <!-- Saunalaatikot kuvilla -->
-            <div class="laatikot">
-                <article class="laatikko">
+            <div class="laatikot" id="sauna-lista">
+                <article class="laatikko" data-hinta-arki="180" data-koko="15">
                     <img src="images/savusauna.jpg" alt="Tunnelmallinen savusauna pimeässä illassa Kuivasjärven rannalla" class="laatikko-kuva">
                     <h3>Savusauna</h3>
                     <p><strong>Koko:</strong> Max. 15 henkeä</p>
@@ -49,7 +87,7 @@
                     <p>Pehmeät, pitkät löylyt ja ainutlaatuinen tunnelma.</p>
                 </article>
 
-                <article class="laatikko">
+                <article class="laatikko" data-hinta-arki="120" data-koko="10">
                     <img src="images/rantasauna.jpg" alt="Puulämmitteinen rantasauna ja laituri" class="laatikko-kuva">
                     <h3>Puulämmitteinen rantasauna</h3>
                     <p><strong>Koko:</strong> Max. 10 henkeä</p>
@@ -57,7 +95,7 @@
                     <p>Perinteinen sauna aivan rannan tuntumassa.</p>
                 </article>
 
-                <article class="laatikko">
+                <article class="laatikko" data-hinta-arki="80" data-koko="5">
                     <img src="images/mokkalassa.jpg" alt="Pieni mökkisauna metsän reunassa" class="laatikko-kuva">
                     <h3>Pieni mökkisauna</h3>
                     <p><strong>Koko:</strong> Max. 5 henkeä</p>
@@ -70,24 +108,24 @@
         <!-- Vapaat illat ilman värikoodistusongelmaa -->
         <section style="margin-top: 40px;">
             <h2>Seuraavan kahden viikon vapaat illat</h2>
-            <p>Alta näet suoraan tekstimuodossa ilmat, jotka ovat vielä varattavissa. <em>(Huom. Ei käytetä vihreää/punaista kalenteria saavutettavuuden takaamiseksi).</em></p>
-            
+            <p>Alta näet suoraan tekstimuodossa illat, jotka ovat vielä varattavissa. <em>(Ei puna-vihreää värikoodausta saavutettavuuden vuoksi.)</em></p>
+
             <div style="background-color: #ffffff; border: 1px solid #c8902e; padding: 20px; border-radius: 6px; margin-top: 15px;">
-                <h3 style="margin-top: 0; color: #1f3d2b;">Vapaat ajat (Viikot 46–47):</h3>
+                <h3 style="margin-top: 0; color: #1f3d2b;">Vapaat ajat (Seuraavat 2 viikkoa):</h3>
                 <ul style="line-height: 1.8;">
-                    <li><strong>Maanantai 16.11.</strong> Vapaana: Pieni mökkisauna</li>
-                    <li><strong>Keskiviikko 18.11.</strong> Vapaana: Puulämmitteinen rantasauna & Pieni mökkisauna</li>
-                    <li><strong>Torstai 19.11.</strong> Vapaana: Savusauna & Pieni mökkisauna</li>
-                    <li><strong>Lauantai 21.11.</strong> Vapaana: Pieni mökkisauna (Viikonloppuhinta)</li>
-                    <li><strong>Maanantai 23.11.</strong> Vapaana: Savusauna & Puulämmitteinen rantasauna</li>
-                    <li><strong>Tiistai 24.11.</strong> Vapaana: Kaikki saunat (Savusauna, Rantasauna, Mökkisauna)</li>
-                    <li><strong>Torstai 26.11.</strong> Vapaana: Puulämmitteinen rantasauna</li>
+                    <li><strong>Maanantai 23.11.</strong> – Vapaana: Savusauna &amp; Puulämmitteinen rantasauna</li>
+                    <li><strong>Tiistai 24.11.</strong> – Vapaana: Kaikki saunat (Savusauna, Rantasauna, Mökkisauna)</li>
+                    <li><strong>Torstai 26.11.</strong> – Vapaana: Puulämmitteinen rantasauna</li>
+                    <li><strong>Lauantai 28.11.</strong> – Vapaana: Pieni mökkisauna (Viikonloppuhinta)</li>
+                    <li><strong>Maanantai 30.11.</strong> – Vapaana: Pieni mökkisauna</li>
+                    <li><strong>Keskiviikko 2.12.</strong> – Vapaana: Savusauna &amp; Pieni mökkisauna</li>
+                    <li><strong>Perjantai 4.12.</strong> – Vapaana: Puulämmitteinen rantasauna (Viikonloppuhinta)</li>
                 </ul>
                 <p style="margin-bottom: 0; font-size: 0.95rem;">Haluatko varata jonkin näistä illoista? Siirry <a href="contact.html">Ota yhteyttä</a> -sivulle ja lähetä varauspyyntö!</p>
             </div>
         </section>
     </main>
-
+    
     <!-- ALAPALKKI -->
     <footer class="site-footer">
         <p>&copy; 2026 Kuivasjärven Rantasaunat | Seinäjoki</p>
